@@ -6,6 +6,8 @@ import datetime
 import os
 import re
 import json
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 # Suppress SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -59,8 +61,21 @@ def fetch_menu_data(url):
     session = requests.Session()
     session.headers.update(headers)
 
+    # --- Add Retry Logic for robustness in CI environments ---
+    retry_strategy = Retry(
+        total=3,  # Total number of retries
+        backoff_factor=1,  # Wait 1s, 2s, 4s between retries
+        status_forcelist=[429, 500, 502, 503, 504], # Retry on these server errors
+        allowed_methods=["HEAD", "GET", "OPTIONS"]
+    )
+    adapter = HTTPAdapter(max_retries=retry_strategy)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    # --- End Retry Logic ---
+
     try:
-        response = session.get(url, verify=False, timeout=15)
+        # Increase timeout from 15 to 30 seconds
+        response = session.get(url, verify=False, timeout=30)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, 'html.parser')
