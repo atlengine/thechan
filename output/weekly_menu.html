@@ -26,7 +26,7 @@
                 // Hide all menu grids
                 const grids = document.querySelectorAll('.menu-grid');
                 grids.forEach(grid => grid.classList.add('hidden'));
-                
+
                 // Show the selected one
                 const selectedGrid = document.getElementById('grid-' + date);
                 if (selectedGrid) {
@@ -38,12 +38,11 @@
     <body>
         <div class="container">
             <h1>반찬 메뉴 아카이브</h1>
-            
+
             <div class="controls">
                 <label for="dateSelect">배송 날짜 선택: </label>
                 <select id="dateSelect" onchange="showMenu(this.value)">
     <option value="3월 4일" selected>3월 4일</option>
-<option value="2월 25일" >2월 25일</option>
 
                 </select>
             </div>
@@ -171,132 +170,6 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">양념 LA 갈비 ($20)</div>
-                    </div>
-                </div>
-            </div><div id="grid-2월 25일" class="menu-grid hidden">
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2025/07/KakaoTalk_20250723_222331024_05-218x300.jpg" alt="옛날 닭도리탕" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">옛날 닭도리탕</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2021/07/KakaoTalk_Photo_2023-07-11-23-50-14-002-300x300.jpeg" alt="새로운 뼈다귀 감자탕" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">새로운 뼈다귀 감자탕</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2022/02/sbjsp-300x290.jpeg" alt="구 사골 석박지" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">구 사골 석박지</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2025/11/KakaoTalk_20251120_140044985-230x300.jpg" alt="새새송이 소불고기" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">새새송이 소불고기</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2021/06/329746421_733073488184970_6246799298926880858_n-300x291.jpg" alt="야채 계란 말이 다시" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">야채 계란 말이 다시</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2021/12/KakaoTalk_20251120_140046320-238x300.jpg" alt="마른 오징어 초무침" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">마른 오징어 초무침</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2021/10/KakaoTalk_20250716_234704626-222x300.jpg" alt="큰 잔치국수 (재료)" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">큰 잔치국수 (재료)</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2024/06/KakaoTalk_20240620_153054851_05-232x300.jpg" alt="참치캔 두부 짜글이" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">참치캔 두부 짜글이</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2021/09/KakaoTalk_Photo_2023-11-28-11-25-24-003jpeg-300x289.jpeg" alt="간장 새우장 및 게장" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">간장 새우장 및 게장</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2026/02/KakaoTalk_Photo_2026-02-06-22-43-16-300x294.jpeg" alt="고기 찐빵 ($120)" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">고기 찐빵 ($120)</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2021/12/KakaoTalk_Photo_2026-02-06-22-43-24-297x300.jpeg" alt="단팥 찐빵 ($220)" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">단팥 찐빵 ($220)</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2021/09/KakaoTalk_Photo_2026-02-06-23-01-43-285x300.jpeg" alt="식혜 15리터 ($310)" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">식혜 15리터 ($310)</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2021/10/KakaoTalk_Photo_2022-04-24-20-25-44-001-300x300.webp" alt="육개장 ($113)" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">육개장 ($113)</div>
-                    </div>
-                </div>
-            
-                <div class="menu-card">
-                    <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2022/01/ynlagb-300x192.jpeg" alt="양념 LA 갈비 ($520)" loading="lazy">
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-name">양념 LA 갈비 ($520)</div>
                     </div>
                 </div>
             </div>

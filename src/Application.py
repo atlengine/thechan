@@ -10,7 +10,20 @@ import json
 # Suppress SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-DATA_FILE = "menu_data.json"
+# --- Path Configuration ---
+# Get the directory of the current script (e.g., /path/to/project/src)
+SRC_DIR = os.path.dirname(os.path.abspath(__file__))
+# Get the parent directory (the project root, e.g., /path/to/project)
+PROJECT_ROOT = os.path.dirname(SRC_DIR)
+
+# Define output directory at the project root level
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "output")
+DATA_FILE = os.path.join(OUTPUT_DIR, "menu_data.json")
+HTML_FILE = os.path.join(OUTPUT_DIR, "weekly_menu.html")
+
+# Ensure output directory exists
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
 
 def load_data():
     """Loads existing menu data from JSON file."""
@@ -22,10 +35,12 @@ def load_data():
             return {}
     return {}
 
+
 def save_data(data):
     """Saves menu data to JSON file."""
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+
 
 def fetch_menu_data(url):
     """
@@ -47,14 +62,14 @@ def fetch_menu_data(url):
     try:
         response = session.get(url, verify=False, timeout=15)
         response.raise_for_status()
-        
+
         soup = BeautifulSoup(response.text, 'html.parser')
-        
+
         # 1. Extract Delivery Date
         # Look for pattern "XX월 XX일에 배송"
         page_text = soup.get_text()
         date_match = re.search(r'(\d{1,2})\s*월\s*(\d{1,2})\s*일.*배송', page_text)
-        
+
         if date_match:
             delivery_date = f"{date_match.group(1)}월 {date_match.group(2)}일"
         else:
@@ -66,7 +81,7 @@ def fetch_menu_data(url):
         # 2. Extract Menu Items
         menu_items = []
         posts = soup.find_all(class_='elementor-post')
-        
+
         if not posts:
             # Fallback search logic
             text_containers = soup.find_all(class_='elementor-post__text')
@@ -82,34 +97,36 @@ def fetch_menu_data(url):
             name_link = name_div.find('a')
             if not name_link: continue
             name = name_link.get_text(strip=True)
-            
+
             # Extract Image
             img_tag = post.find('img')
             if not img_tag: continue
-                
+
             if 'src' in img_tag.attrs:
                 img_url = urljoin(url, img_tag['src'])
             elif 'data-src' in img_tag.attrs:
                 img_url = urljoin(url, img_tag['data-src'])
             else:
                 continue
-            
+
             menu_items.append({
                 'name': name,
                 'image_url': img_url
             })
-                
+
         return delivery_date, menu_items
 
     except requests.exceptions.RequestException as e:
         print(f"Error fetching the URL: {e}")
         return None, []
 
+
 def generate_html_report(all_data):
     """
     Generates an HTML file with a combo box to select dates.
     all_data: Dictionary { "10월 25일": [items...], "11월 1일": [items...] }
     """
+
     def parse_korean_date(date_str):
         # Extract numbers from "MM월 DD일"
         match = re.search(r'(\d+)\s*월\s*(\d+)\s*일', date_str)
@@ -119,14 +136,14 @@ def generate_html_report(all_data):
 
     # Sort dates chronologically: Newest first
     sorted_dates = sorted(all_data.keys(), key=parse_korean_date, reverse=True)
-    
+
     if not sorted_dates:
         print("No data to generate report.")
         return
 
     latest_date = sorted_dates[0]
     today_str = datetime.date.today().strftime("%Y-%m-%d")
-    
+
     html_content = f"""
     <!DOCTYPE html>
     <html lang="ko">
@@ -155,7 +172,7 @@ def generate_html_report(all_data):
                 // Hide all menu grids
                 const grids = document.querySelectorAll('.menu-grid');
                 grids.forEach(grid => grid.classList.add('hidden'));
-                
+
                 // Show the selected one
                 const selectedGrid = document.getElementById('grid-' + date);
                 if (selectedGrid) {{
@@ -167,30 +184,30 @@ def generate_html_report(all_data):
     <body>
         <div class="container">
             <h1>반찬 메뉴 아카이브</h1>
-            
+
             <div class="controls">
                 <label for="dateSelect">배송 날짜 선택: </label>
                 <select id="dateSelect" onchange="showMenu(this.value)">
     """
-    
+
     # Add options to select box
     for date in sorted_dates:
         selected = "selected" if date == latest_date else ""
         html_content += f'<option value="{date}" {selected}>{date}</option>\n'
-        
+
     html_content += """
                 </select>
             </div>
     """
-    
+
     # Create a grid for each date
     for date in sorted_dates:
         items = all_data[date]
         # Only the latest date is visible initially
         visibility_class = "" if date == latest_date else "hidden"
-        
+
         html_content += f'<div id="grid-{date}" class="menu-grid {visibility_class}">'
-        
+
         for item in items:
             html_content += f"""
                 <div class="menu-card">
@@ -203,33 +220,33 @@ def generate_html_report(all_data):
                 </div>
             """
         html_content += '</div>'
-        
+
     html_content += """
         </div>
     </body>
     </html>
     """
-    
-    output_file = "weekly_menu.html"
-    with open(output_file, "w", encoding="utf-8") as f:
+
+    with open(HTML_FILE, "w", encoding="utf-8") as f:
         f.write(html_content)
-    
-    print(f"Successfully generated report: {os.path.abspath(output_file)}")
+
+    print(f"Successfully generated report: {os.path.abspath(HTML_FILE)}")
+
 
 if __name__ == "__main__":
     target_url = "https://thechanonline.com/"
     print(f"Fetching menu data from {target_url}...")
-    
+
     # 1. Load existing data
     all_data = load_data()
     print(f"Loaded {len(all_data)} existing records.")
-    
+
     # 2. Fetch new data
     delivery_date, menu_items = fetch_menu_data(target_url)
-    
+
     if delivery_date and menu_items:
         print(f"Detected delivery date: {delivery_date}")
-        
+
         # 3. Update data if new
         if delivery_date in all_data:
             print(f"Data for {delivery_date} already exists. Skipping update.")
@@ -238,7 +255,7 @@ if __name__ == "__main__":
             print(f"New data found for {delivery_date}. Updating records.")
             all_data[delivery_date] = menu_items
             save_data(all_data)
-            
+
         # 4. Generate HTML
         generate_html_report(all_data)
     else:
