@@ -8,7 +8,35 @@
         <style>
             body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background-color: #f4f4f9; padding: 20px; margin: 0; }
             .container { max-width: 1200px; margin: 0 auto; }
-            h1 { text-align: center; color: #333; margin-bottom: 20px; }
+            
+            h1 { 
+                text-align: center; 
+                color: #333; 
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+                flex-wrap: wrap; /* 화면이 좁으면 줄바꿈 */
+            }
+            
+            .home-button {
+                display: inline-block;
+                padding: 8px 16px;
+                font-size: 16px;
+                color: white;
+                background-color: #607d8b; /* 밝은 Blue Grey */
+                text-decoration: none;
+                border-radius: 8px; /* 적당한 라운드 */
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            }
+            .home-button:hover {
+                background-color: #78909c;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+
             .controls { text-align: center; margin-bottom: 30px; }
             select { padding: 10px 20px; font-size: 16px; border-radius: 5px; border: 1px solid #ddd; cursor: pointer; }
             .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
@@ -37,7 +65,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>반찬 메뉴 아카이브</h1>
+            <h1>반찬 메뉴 아카이브 <a href="https://thechanonline.com/" target="_blank" class="home-button">The Chan</a></h1>
 
             <div class="controls">
                 <label for="dateSelect">배송 날짜 선택: </label>
