@@ -9,6 +9,9 @@ import json
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+# --- Configuration ---
+DEBUG = False  # Set to True to use local debug_page.html instead of the live site
+
 # Suppress SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -46,49 +49,60 @@ def save_data(data):
 
 def fetch_menu_data(url):
     """
-    Fetches menu items and delivery date from the given URL.
+    Fetches menu items and delivery date.
+    In DEBUG mode, reads from src/debug_page.html.
     Returns: (delivery_date_string, menu_items_list)
     """
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-        'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Referer': 'https://www.google.com/',
-        'Upgrade-Insecure-Requests': '1',
-        'Connection': 'keep-alive'
-    }
+    if DEBUG:
+        debug_path = os.path.join(SRC_DIR, "debug_page.html")
+        print(f"[DEBUG MODE] Reading local file: {debug_path}")
+        try:
+            with open(debug_path, 'r', encoding='utf-8') as f:
+                html_content = f.read()
+            soup = BeautifulSoup(html_content, 'html.parser')
+        except FileNotFoundError:
+            print(f"[DEBUG MODE] Error: {debug_path} not found.")
+            return None, []
+    else:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Referer': 'https://www.google.com/',
+            'Upgrade-Insecure-Requests': '1',
+            'Connection': 'keep-alive'
+        }
 
-    session = requests.Session()
-    session.headers.update(headers)
+        session = requests.Session()
+        session.headers.update(headers)
 
-    # --- Add Retry Logic for robustness in CI environments ---
-    retry_strategy = Retry(
-        total=3,  # Total number of retries
-        backoff_factor=1,  # Wait 1s, 2s, 4s between retries
-        status_forcelist=[429, 500, 502, 503, 504], # Retry on these server errors
-        allowed_methods=["HEAD", "GET", "OPTIONS"]
-    )
-    adapter = HTTPAdapter(max_retries=retry_strategy)
-    session.mount("https://", adapter)
-    session.mount("http://", adapter)
-    # --- End Retry Logic ---
+        retry_strategy = Retry(
+            total=3,
+            backoff_factor=1,
+            status_forcelist=[429, 500, 502, 503, 504],
+            allowed_methods=["HEAD", "GET", "OPTIONS"]
+        )
+        adapter = HTTPAdapter(max_retries=retry_strategy)
+        session.mount("https://", adapter)
+        session.mount("http://", adapter)
 
+        try:
+            response = session.get(url, verify=False, timeout=30)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, 'html.parser')
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching the URL: {e}")
+            return None, []
+
+    # --- Common Parsing Logic ---
     try:
-        # Increase timeout from 15 to 30 seconds
-        response = session.get(url, verify=False, timeout=30)
-        response.raise_for_status()
-
-        soup = BeautifulSoup(response.text, 'html.parser')
-
         # 1. Extract Delivery Date
-        # Look for pattern "XX월 XX일에 배송"
         page_text = soup.get_text()
         date_match = re.search(r'(\d{1,2})\s*월\s*(\d{1,2})\s*일.*배송', page_text)
 
         if date_match:
             delivery_date = f"{date_match.group(1)}월 {date_match.group(2)}일"
         else:
-            # Fallback if not found
             today = datetime.date.today()
             delivery_date = f"{today.month}월 {today.day}일 (날짜 미확인)"
             print(f"Warning: Could not find delivery date pattern. Using {delivery_date}")
@@ -98,7 +112,6 @@ def fetch_menu_data(url):
         posts = soup.find_all(class_='elementor-post')
 
         if not posts:
-            # Fallback search logic
             text_containers = soup.find_all(class_='elementor-post__text')
             for text_div in text_containers:
                 container = text_div.find_parent(class_='elementor-post')
@@ -106,14 +119,12 @@ def fetch_menu_data(url):
                     posts.append(container)
 
         for post in posts:
-            # Extract Name
             name_div = post.find(class_='elementor-post__text')
             if not name_div: continue
             name_link = name_div.find('a')
             if not name_link: continue
             name = name_link.get_text(strip=True)
 
-            # Extract Image
             img_tag = post.find('img')
             if not img_tag: continue
 
@@ -131,8 +142,8 @@ def fetch_menu_data(url):
 
         return delivery_date, menu_items
 
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching the URL: {e}")
+    except Exception as e:
+        print(f"Error parsing content: {e}")
         return None, []
 
 
@@ -185,7 +196,7 @@ def generate_html_report(all_data):
                 align-items: center;
                 justify-content: center;
                 gap: 15px;
-                flex-wrap: wrap; /* 화면이 좁으면 줄바꿈 */
+                flex-wrap: wrap;
             }}
             
             .home-button {{
@@ -193,9 +204,9 @@ def generate_html_report(all_data):
                 padding: 8px 16px;
                 font-size: 16px;
                 color: white;
-                background-color: #607d8b; /* 밝은 Blue Grey */
+                background-color: #607d8b;
                 text-decoration: none;
-                border-radius: 8px; /* 적당한 라운드 */
+                border-radius: 8px;
                 transition: all 0.3s ease;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.15);
             }}
@@ -219,11 +230,9 @@ def generate_html_report(all_data):
         </style>
         <script>
             function showMenu(date) {{
-                // Hide all menu grids
                 const grids = document.querySelectorAll('.menu-grid');
                 grids.forEach(grid => grid.classList.add('hidden'));
 
-                // Show the selected one
                 const selectedGrid = document.getElementById('grid-' + date);
                 if (selectedGrid) {{
                     selectedGrid.classList.remove('hidden');
@@ -240,7 +249,6 @@ def generate_html_report(all_data):
                 <select id="dateSelect" onchange="showMenu(this.value)">
     """
 
-    # Add options to select box
     for date in sorted_dates:
         selected = "selected" if date == latest_date else ""
         html_content += f'<option value="{date}" {selected}>{date}</option>\n'
@@ -250,14 +258,10 @@ def generate_html_report(all_data):
             </div>
     """
 
-    # Create a grid for each date
     for date in sorted_dates:
         items = all_data[date]
-        # Only the latest date is visible initially
         visibility_class = "" if date == latest_date else "hidden"
-
         html_content += f'<div id="grid-{date}" class="menu-grid {visibility_class}">'
-
         for item in items:
             html_content += f"""
                 <div class="menu-card">
@@ -285,13 +289,17 @@ def generate_html_report(all_data):
 
 if __name__ == "__main__":
     target_url = "https://thechanonline.com/"
-    print(f"Fetching menu data from {target_url}...")
+    
+    if DEBUG:
+        print("Running in DEBUG mode...")
+    else:
+        print(f"Fetching menu data from {target_url}...")
 
     # 1. Load existing data
     all_data = load_data()
     print(f"Loaded {len(all_data)} existing records.")
 
-    # 2. Fetch new data
+    # 2. Fetch data (handling DEBUG mode internally)
     delivery_date, menu_items = fetch_menu_data(target_url)
 
     if delivery_date and menu_items:
@@ -301,11 +309,9 @@ if __name__ == "__main__":
         current_key = delivery_date
         is_duplicate = False
 
-        # Check if this exact menu already exists under the main date or any suffixed version
         if current_key in all_data and all_data[current_key] == menu_items:
             is_duplicate = True
         else:
-            # Check existing suffixes
             counter = 1
             while f"{delivery_date} - {counter}" in all_data:
                 if all_data[f"{delivery_date} - {counter}"] == menu_items:
@@ -314,7 +320,6 @@ if __name__ == "__main__":
                 counter += 1
             
             if not is_duplicate:
-                # If the base key exists but has different menu, find the next suffix
                 if delivery_date in all_data:
                     current_key = f"{delivery_date} - {counter}"
 
@@ -328,4 +333,4 @@ if __name__ == "__main__":
         # 4. Generate HTML
         generate_html_report(all_data)
     else:
-        print("Failed to fetch new data.")
+        print("Failed to fetch/parse data.")
