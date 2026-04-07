@@ -146,8 +146,15 @@ def generate_html_report(all_data):
         # Extract numbers from "MM월 DD일"
         match = re.search(r'(\d+)\s*월\s*(\d+)\s*일', date_str)
         if match:
-            return int(match.group(1)), int(match.group(2))
-        return (0, 0)
+            month = int(match.group(1))
+            day = int(match.group(2))
+            
+            # Check for suffix like "- 1"
+            suffix_match = re.search(r'-\s*(\d+)$', date_str)
+            suffix = int(suffix_match.group(1)) if suffix_match else 0
+            
+            return month, day, suffix
+        return (0, 0, 0)
 
     # Sort dates chronologically: Newest first
     sorted_dates = sorted(all_data.keys(), key=parse_korean_date, reverse=True)
@@ -290,13 +297,32 @@ if __name__ == "__main__":
     if delivery_date and menu_items:
         print(f"Detected delivery date: {delivery_date}")
 
-        # 3. Update data if new
-        if delivery_date in all_data:
-            print(f"Data for {delivery_date} already exists. Skipping update.")
-            # We still regenerate HTML to ensure it's up to date with the file
+        # 3. Update data if new or changed
+        current_key = delivery_date
+        is_duplicate = False
+
+        # Check if this exact menu already exists under the main date or any suffixed version
+        if current_key in all_data and all_data[current_key] == menu_items:
+            is_duplicate = True
         else:
-            print(f"New data found for {delivery_date}. Updating records.")
-            all_data[delivery_date] = menu_items
+            # Check existing suffixes
+            counter = 1
+            while f"{delivery_date} - {counter}" in all_data:
+                if all_data[f"{delivery_date} - {counter}"] == menu_items:
+                    is_duplicate = True
+                    break
+                counter += 1
+            
+            if not is_duplicate:
+                # If the base key exists but has different menu, find the next suffix
+                if delivery_date in all_data:
+                    current_key = f"{delivery_date} - {counter}"
+
+        if is_duplicate:
+            print(f"Menu data for {delivery_date} already exists and matches. Skipping update.")
+        else:
+            print(f"New or updated data found. Saving as: {current_key}")
+            all_data[current_key] = menu_items
             save_data(all_data)
 
         # 4. Generate HTML
