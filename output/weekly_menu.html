@@ -17,7 +17,7 @@
                 align-items: center;
                 justify-content: center;
                 gap: 15px;
-                flex-wrap: wrap; /* 화면이 좁으면 줄바꿈 */
+                flex-wrap: wrap;
             }
             
             .home-button {
@@ -25,9 +25,9 @@
                 padding: 8px 16px;
                 font-size: 16px;
                 color: white;
-                background-color: #607d8b; /* 밝은 Blue Grey */
+                background-color: #607d8b;
                 text-decoration: none;
-                border-radius: 8px; /* 적당한 라운드 */
+                border-radius: 8px;
                 transition: all 0.3s ease;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.15);
             }
@@ -51,11 +51,9 @@
         </style>
         <script>
             function showMenu(date) {
-                // Hide all menu grids
                 const grids = document.querySelectorAll('.menu-grid');
                 grids.forEach(grid => grid.classList.add('hidden'));
 
-                // Show the selected one
                 const selectedGrid = document.getElementById('grid-' + date);
                 if (selectedGrid) {
                     selectedGrid.classList.remove('hidden');
