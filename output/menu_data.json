@@ -434,5 +434,55 @@
       "name": "소불고기 ($15)",
       "image_url": "https://thechanonline.com/wp-content/uploads/2025/12/KakaoTalk_Photo_2025-12-26-10-31-41-230x300.jpeg"
     }
+  ],
+  "4월 22일": [
+    {
+      "name": "계란장",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2023/10/KakaoTalk_Photo_2023-10-08-22-36-03-007-300x300.jpeg"
+    },
+    {
+      "name": "떡갈비",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2022/05/KakaoTalk_Photo_2026-04-17-12-44-48-300x256.jpeg"
+    },
+    {
+      "name": "민들래  김치",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2022/04/KakaoTalk_Photo_2022-04-03-13-43-34-001-300x300.webp"
+    },
+    {
+      "name": "소고기 무국",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2021/11/sgg-300x300.jpg"
+    },
+    {
+      "name": "소고기 버섯전골",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2022/02/ssgbsut-300x284.jpg"
+    },
+    {
+      "name": "제육 볶음",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2024/09/KakaoTalk_20250515_002153217_02-278x300.jpg"
+    },
+    {
+      "name": "청국장",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2021/06/KakaoTalk_Photo_2023-05-01-21-52-07-300x300.webp"
+    },
+    {
+      "name": "치킨 냉샐러드",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2025/07/KakaoTalk_20250710_012919962_07-300x283.jpg"
+    },
+    {
+      "name": "토핑 유부초밥",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2022/04/KakaoTalk_Photo_2026-04-17-12-44-08-228x300.jpeg"
+    },
+    {
+      "name": "식혜 1리터 ($10)",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2021/09/KakaoTalk_Photo_2026-02-06-23-01-43-285x300.jpeg"
+    },
+    {
+      "name": "소불고기 ($15)",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2025/12/KakaoTalk_Photo_2025-12-26-10-31-41-230x300.jpeg"
+    },
+    {
+      "name": "돼지 갈비 ($15)",
+      "image_url": "https://thechanonline.com/wp-content/uploads/2022/01/djyngb-300x300.jpg"
+    }
   ]
 }
