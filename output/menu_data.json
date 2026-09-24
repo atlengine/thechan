@@ -1008,5 +1008,79 @@
       "name": "민들래  김치 ($18)",
       "image_url": "https://thechanonline.com/wp-content/uploads/2022/04/KakaoTalk_Photo_2022-04-03-13-43-34-001-300x300.webp"
     }
+  ],
+  "9월 23일": [
+    {
+      "name": "양념 LA 갈비",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=556",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "모듬전 세트",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=587",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "양념 게장",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=659",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "소고기 탕국",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=184",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "식혜",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=856",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "3종 나물세트",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=401",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "식혜",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=856",
+      "category": "단품 메뉴",
+      "price": "$10"
+    },
+    {
+      "name": "돼지갈비",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=870",
+      "category": "단품 메뉴",
+      "price": "$15"
+    },
+    {
+      "name": "모듬전 세트",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=587",
+      "category": "단품 메뉴",
+      "price": "$35"
+    },
+    {
+      "name": "홍어 무침",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=308",
+      "category": "단품 메뉴",
+      "price": "$35"
+    },
+    {
+      "name": "간장게장",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=721",
+      "category": "단품 메뉴",
+      "price": "$20"
+    },
+    {
+      "name": "간장 새우장",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=811",
+      "category": "단품 메뉴",
+      "price": "$25"
+    },
+    {
+      "name": "양념 LA 갈비",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=556",
+      "category": "단품 메뉴",
+      "price": "$35"
+    }
   ]
 }

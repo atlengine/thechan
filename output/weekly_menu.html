@@ -47,6 +47,7 @@
             .menu-card:hover img { transform: scale(1.05); }
             .menu-info { padding: 20px; text-align: center; }
             .menu-name { font-weight: bold; color: #333; font-size: 1.1em; margin-bottom: 5px; }
+            .menu-meta { color: #607d8b; font-size: 0.95em; }
             .hidden { display: none; }
         </style>
         <script>
@@ -54,7 +55,7 @@
                 const grids = document.querySelectorAll('.menu-grid');
                 grids.forEach(grid => grid.classList.add('hidden'));
 
-                const selectedGrid = document.getElementById('grid-' + date);
+                const selectedGrid = document.getElementById(date);
                 if (selectedGrid) {
                     selectedGrid.classList.remove('hidden');
                 }
@@ -68,37 +69,169 @@
             <div class="controls">
                 <label for="dateSelect">배송 날짜 선택: </label>
                 <select id="dateSelect" onchange="showMenu(this.value)">
-    <option value="7월 22일" selected>7월 22일</option>
-<option value="7월 15일 - 1" >7월 15일 - 1</option>
-<option value="7월 15일" >7월 15일</option>
-<option value="7월 8일" >7월 8일</option>
-<option value="7월 1일" >7월 1일</option>
-<option value="6월 24일" >6월 24일</option>
-<option value="6월 17일" >6월 17일</option>
-<option value="6월 10일" >6월 10일</option>
-<option value="6월 3일" >6월 3일</option>
-<option value="5월 20일" >5월 20일</option>
-<option value="5월 6일" >5월 6일</option>
-<option value="4월 29일" >4월 29일</option>
-<option value="4월 22일" >4월 22일</option>
-<option value="4월 15일 - 1" >4월 15일 - 1</option>
-<option value="4월 15일" >4월 15일</option>
-<option value="4월 8일" >4월 8일</option>
-<option value="4월 1일" >4월 1일</option>
-<option value="3월 25일" >3월 25일</option>
-<option value="3월 18일" >3월 18일</option>
-<option value="3월 11일" >3월 11일</option>
-<option value="3월 4일" >3월 4일</option>
+    <option value="menu-0" selected>9월 23일</option>
+<option value="menu-1" >7월 22일</option>
+<option value="menu-2" >7월 15일 - 1</option>
+<option value="menu-3" >7월 15일</option>
+<option value="menu-4" >7월 8일</option>
+<option value="menu-5" >7월 1일</option>
+<option value="menu-6" >6월 24일</option>
+<option value="menu-7" >6월 17일</option>
+<option value="menu-8" >6월 10일</option>
+<option value="menu-9" >6월 3일</option>
+<option value="menu-10" >5월 20일</option>
+<option value="menu-11" >5월 6일</option>
+<option value="menu-12" >4월 29일</option>
+<option value="menu-13" >4월 22일</option>
+<option value="menu-14" >4월 15일 - 1</option>
+<option value="menu-15" >4월 15일</option>
+<option value="menu-16" >4월 8일</option>
+<option value="menu-17" >4월 1일</option>
+<option value="menu-18" >3월 25일</option>
+<option value="menu-19" >3월 18일</option>
+<option value="menu-20" >3월 11일</option>
+<option value="menu-21" >3월 4일</option>
 
                 </select>
             </div>
-    <div id="grid-7월 22일" class="menu-grid ">
+    <div id="menu-0" class="menu-grid ">
                 <div class="menu-card">
                     <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2024/11/KakaoTalk_20241115_092714598-242x300.jpg" alt="강된장 & 양배추쌈" loading="lazy">
+                        <img src="https://thechanonline.com/dish_photo.php?id=556" alt="양념 LA 갈비" loading="lazy">
                     </div>
                     <div class="menu-info">
-                        <div class="menu-name">강된장 & 양배추쌈</div>
+                        <div class="menu-name">양념 LA 갈비</div>
+                        <div class="menu-meta">기본 메뉴</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=587" alt="모듬전 세트" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">모듬전 세트</div>
+                        <div class="menu-meta">기본 메뉴</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=659" alt="양념 게장" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">양념 게장</div>
+                        <div class="menu-meta">기본 메뉴</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=184" alt="소고기 탕국" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">소고기 탕국</div>
+                        <div class="menu-meta">기본 메뉴</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=856" alt="식혜" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">식혜</div>
+                        <div class="menu-meta">기본 메뉴</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=401" alt="3종 나물세트" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">3종 나물세트</div>
+                        <div class="menu-meta">기본 메뉴</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=856" alt="식혜" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">식혜</div>
+                        <div class="menu-meta">단품 메뉴 · $10</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=870" alt="돼지갈비" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">돼지갈비</div>
+                        <div class="menu-meta">단품 메뉴 · $15</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=587" alt="모듬전 세트" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">모듬전 세트</div>
+                        <div class="menu-meta">단품 메뉴 · $35</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=308" alt="홍어 무침" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">홍어 무침</div>
+                        <div class="menu-meta">단품 메뉴 · $35</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=721" alt="간장게장" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">간장게장</div>
+                        <div class="menu-meta">단품 메뉴 · $20</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=811" alt="간장 새우장" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">간장 새우장</div>
+                        <div class="menu-meta">단품 메뉴 · $25</div>
+                    </div>
+                </div>
+            
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/dish_photo.php?id=556" alt="양념 LA 갈비" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">양념 LA 갈비</div>
+                        <div class="menu-meta">단품 메뉴 · $35</div>
+                    </div>
+                </div>
+            </div><div id="menu-1" class="menu-grid hidden">
+                <div class="menu-card">
+                    <div class="image-container">
+                        <img src="https://thechanonline.com/wp-content/uploads/2024/11/KakaoTalk_20241115_092714598-242x300.jpg" alt="강된장 &amp; 양배추쌈" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-name">강된장 &amp; 양배추쌈</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -108,6 +241,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">궁중 떡볶이</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -117,6 +251,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">배추김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -126,6 +261,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">새송이 어묵 볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -135,6 +271,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 메추리알 장조림</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -144,6 +281,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">순두부 찌개</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -153,6 +291,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">열무 물김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -162,15 +301,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">콩국수</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
                 <div class="menu-card">
                     <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2023/05/KakaoTalk_Photo_2023-05-30-09-38-45-008-300x300.webp" alt="파채 & 소스" loading="lazy">
+                        <img src="https://thechanonline.com/wp-content/uploads/2023/05/KakaoTalk_Photo_2023-05-30-09-38-45-008-300x300.webp" alt="파채 &amp; 소스" loading="lazy">
                     </div>
                     <div class="menu-info">
-                        <div class="menu-name">파채 & 소스</div>
+                        <div class="menu-name">파채 &amp; 소스</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -180,6 +321,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">칼집 목살</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -189,15 +331,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 ($18)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-7월 15일 - 1" class="menu-grid hidden">
+            </div><div id="menu-2" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2022/02/KakaoTalk_Photo_2022-02-06-13-04-35-009-300x300.webp" alt="깍두기" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">깍두기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -207,6 +351,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돼지 갈비</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -216,6 +361,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 가지 덮밥</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -225,6 +371,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소세지 메추리 야채 볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -234,6 +381,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">야채 피클</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -243,6 +391,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">양념 게장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -252,6 +401,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">육개장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -261,6 +411,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">치킨 유린기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -270,6 +421,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">누룽지탕</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -279,15 +431,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 ($18)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-7월 15일" class="menu-grid hidden">
+            </div><div id="menu-3" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2022/02/KakaoTalk_Photo_2022-02-06-13-04-35-009-300x300.webp" alt="깍두기" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">깍두기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -297,6 +451,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돼지 갈비</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -306,6 +461,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 가지 덮밥</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -315,6 +471,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소세지 메추리 야채 볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -324,6 +481,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">야채 피클</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -333,6 +491,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">양념 게장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -342,6 +501,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">육개장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -351,6 +511,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">치킨 유린기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -360,6 +521,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">해물 누룽지탕</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -369,15 +531,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 ($18)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-7월 8일" class="menu-grid hidden">
+            </div><div id="menu-4" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2023/02/고추장-불고기-300x300.jpg" alt="고추장 불고기" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">고추장 불고기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -387,6 +551,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">마파두부</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -396,6 +561,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">매콤 어묵 김밥</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -405,6 +571,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">뼈다귀 감자탕</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -414,6 +581,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 감자조림</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -423,6 +591,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">야채 전 반죽</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -432,6 +601,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">오이 소박이</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -441,6 +611,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">우동 샐러드</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -450,6 +621,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">얼큰 버섯 전골</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -459,15 +631,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 ($18)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-7월 1일" class="menu-grid hidden">
+            </div><div id="menu-5" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2021/10/KakaoTalk_20250821_060745352_08-300x290.jpg" alt="나박김치" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">나박김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -477,6 +651,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">무생채</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -486,6 +661,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">비빔 국수</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -495,6 +671,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">새송이 메추리 장조림</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -504,6 +681,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">설렁탕</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -513,6 +691,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 두부조림</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -522,6 +701,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">칼집 목살</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -531,15 +711,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">파닭 꼬치구이용</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
                 <div class="menu-card">
                     <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2023/05/KakaoTalk_Photo_2023-05-30-09-38-45-008-300x300.webp" alt="파채 & 소스" loading="lazy">
+                        <img src="https://thechanonline.com/wp-content/uploads/2023/05/KakaoTalk_Photo_2023-05-30-09-38-45-008-300x300.webp" alt="파채 &amp; 소스" loading="lazy">
                     </div>
                     <div class="menu-info">
-                        <div class="menu-name">파채 & 소스</div>
+                        <div class="menu-name">파채 &amp; 소스</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -549,6 +731,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">모듬전 세트</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -558,15 +741,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 ($18)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-6월 24일" class="menu-grid hidden">
+            </div><div id="menu-6" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2022/02/KakaoTalk_20240808_094205096-300x300.jpg" alt="간장게장" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">간장게장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -576,6 +761,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">누룽지 닭다리 삼계탕</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -585,6 +771,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">메추리알 야채 샐러드</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -594,6 +781,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">부대찌개</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -603,6 +791,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">석박지</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -612,6 +801,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">오이 미역냉국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -621,6 +811,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">제육 볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -630,6 +821,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">팽이 베이컨 말이</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -639,6 +831,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 야채 볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -648,15 +841,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 ($18)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-6월 17일" class="menu-grid hidden">
+            </div><div id="menu-7" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2026/06/KakaoTalk_Photo_2026-06-12-19-03-29-009-211x300.jpeg" alt="감자 계란 샐러드" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">감자 계란 샐러드</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -666,6 +861,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">도토리 묵 무침 재료</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -675,6 +871,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">매콤 뼈다귀찜</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -684,6 +881,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">배추말이 전골</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -693,6 +891,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">새송이 어묵 잡채</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -702,6 +901,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">얼갈이 열무 물김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -711,6 +911,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">육개장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -720,6 +921,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">콩국수</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -729,6 +931,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">국물 닭도리탕</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -738,15 +941,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 ($18)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-6월 10일" class="menu-grid hidden">
+            </div><div id="menu-8" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2021/12/KakaoTalk_Photo_2026-06-04-11-14-32-009-247x300.jpeg" alt="감자채 스팸볶음" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">감자채 스팸볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -756,6 +961,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">목살 불고기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -765,6 +971,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">볶음밥 또띠아</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -774,6 +981,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 된장 시래기국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -783,6 +991,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 야채전골</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -792,6 +1001,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 카레</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -801,6 +1011,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">오징어 초무침</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -810,6 +1021,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">우동 샐러드</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -819,6 +1031,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">배추 굴 김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -828,15 +1041,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 ($18)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-6월 3일" class="menu-grid hidden">
+            </div><div id="menu-9" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2022/05/KakaoTalk_20250321_002100577_06-192x300.jpg" alt="계란찜" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">계란찜</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -846,6 +1061,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">깍두기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -855,6 +1071,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">꽃게 된장국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -864,6 +1081,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돼지 갈비</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -873,6 +1091,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">로제 떡볶이 재료</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -882,6 +1101,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 계란 장조림</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -891,6 +1111,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">오이 물김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -900,6 +1121,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">홍진미채 무침</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -909,6 +1131,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">중국 냉면</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -918,15 +1141,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 ($18)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-5월 20일" class="menu-grid hidden">
+            </div><div id="menu-10" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2022/03/275042688_330416682462685_3488691350428199348_n-300x273.jpeg" alt="골뱅이 무침" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">골뱅이 무침</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -936,6 +1161,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">들기름 막국수</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -945,6 +1171,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">뼈다귀 해장국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -954,6 +1181,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 무국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -963,6 +1191,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">어묵 야채 볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -972,6 +1201,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">얼갈이 배추 물김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -981,6 +1211,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">지리멸치 마늘쫑 볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -990,6 +1221,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">팽이 버섯전</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -999,6 +1231,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소불고기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1008,15 +1241,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 ($18)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-5월 6일" class="menu-grid hidden">
+            </div><div id="menu-11" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2023/08/KakaoTalk_Photo_2023-08-09-23-09-39-002-300x300.jpeg" alt="돼지 갈비" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돼지 갈비</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1026,6 +1261,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">배추김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1035,6 +1271,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">부대찌개</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1044,6 +1281,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">열무 물김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1053,6 +1291,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">육개장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1062,6 +1301,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">짜장소스</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1071,6 +1311,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">치킨 우동 볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1080,6 +1321,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">코다리 무조림</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1089,6 +1331,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 육전</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1098,6 +1341,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돼지 갈비 ($15)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1107,6 +1351,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 ($15)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1116,6 +1361,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">배추김치 ($15)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1125,24 +1371,27 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">열무 물김치 ($15)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-4월 29일" class="menu-grid hidden">
+            </div><div id="menu-12" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2023/03/KakaoTalk_Photo_2023-03-04-09-32-13-007-300x300.jpeg" alt="돈까스" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돈까스</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
                 <div class="menu-card">
                     <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2026/04/KakaoTalk_Photo_2026-04-23-14-43-45-204x300.jpeg" alt="두부 구이 & 양념장" loading="lazy">
+                        <img src="https://thechanonline.com/wp-content/uploads/2026/04/KakaoTalk_Photo_2026-04-23-14-43-45-204x300.jpeg" alt="두부 구이 &amp; 양념장" loading="lazy">
                     </div>
                     <div class="menu-info">
-                        <div class="menu-name">두부 구이 & 양념장</div>
+                        <div class="menu-name">두부 구이 &amp; 양념장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1152,6 +1401,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">목살 불고기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1161,6 +1411,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">석박지</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1170,6 +1421,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 순두부찌개</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1179,6 +1431,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">양념 게장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1188,6 +1441,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">콩국수</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1197,6 +1451,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">황태국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1206,6 +1461,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">깻잎 김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1215,15 +1471,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치 (단품)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-4월 22일" class="menu-grid hidden">
+            </div><div id="menu-13" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2023/10/KakaoTalk_Photo_2023-10-08-22-36-03-007-300x300.jpeg" alt="계란장" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">계란장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1233,6 +1491,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">떡갈비</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1242,6 +1501,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1251,6 +1511,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 무국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1260,6 +1521,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 버섯전골</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1269,6 +1531,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">제육 볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1278,6 +1541,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">청국장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1287,6 +1551,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">치킨 냉샐러드</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1296,6 +1561,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">토핑 유부초밥</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1305,6 +1571,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">식혜 1리터 ($10)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1314,6 +1581,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소불고기 ($15)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1323,15 +1591,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돼지 갈비 ($15)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-4월 15일 - 1" class="menu-grid hidden">
+            </div><div id="menu-14" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2023/08/KakaoTalk_Photo_2023-08-09-23-09-39-002-300x300.jpeg" alt="돼지 갈비" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돼지 갈비</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1341,6 +1611,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">두부김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1350,6 +1621,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">로제 떡볶이 재료</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1359,6 +1631,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">뼈다귀 해장국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1368,6 +1641,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 미역국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1377,6 +1651,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">야채 계란 말이</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1386,6 +1661,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">어묵 우동</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1395,6 +1671,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">열무 물김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1404,6 +1681,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">간장 닭 오븐구이</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1413,6 +1691,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">민들래  김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1422,6 +1701,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">열무 물김치 ($13)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1431,6 +1711,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">식혜 1리터 ($10)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1440,15 +1721,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소불고기 ($15)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-4월 15일" class="menu-grid hidden">
+            </div><div id="menu-15" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2023/08/KakaoTalk_Photo_2023-08-09-23-09-39-002-300x300.jpeg" alt="돼지 갈비" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돼지 갈비</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1458,6 +1741,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">두부김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1467,6 +1751,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">로제 떡볶이 재료</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1476,6 +1761,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">뼈다귀 해장국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1485,6 +1771,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 미역국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1494,6 +1781,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">야채 계란 말이</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1503,6 +1791,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">어묵 우동</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1512,6 +1801,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">열무 물김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1521,6 +1811,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">간장 닭 오븐구이</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1530,6 +1821,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">열무 물김치 ($13)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1539,6 +1831,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">식혜 1리터 ($10)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1548,15 +1841,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소불고기 ($15)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-4월 8일" class="menu-grid hidden">
+            </div><div id="menu-16" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2022/02/KakaoTalk_Photo_2022-02-06-13-04-35-009-300x300.webp" alt="깍두기" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">깍두기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1566,6 +1861,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">동태 찌개</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1575,6 +1871,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">모듬 꼬치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1584,6 +1881,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">비빔밥</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1593,6 +1891,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">식혜</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1602,6 +1901,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">얼큰 샤브샤브</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1611,6 +1911,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">오이 부추 무침</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1620,6 +1921,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">팽이 버섯전</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1629,6 +1931,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">모듬 해물장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1638,6 +1941,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돈까스 ($12)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1647,6 +1951,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소불고기 ($15)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1656,6 +1961,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">육개장 ($12)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1665,6 +1971,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">제육 볶음 ($12)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1674,6 +1981,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">순살 닭 야채볶음 ($12)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1683,15 +1991,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">백김치 ($8)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-4월 1일" class="menu-grid hidden">
+            </div><div id="menu-17" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2026/03/KakaoTalk_Photo_2026-03-27-17-36-55-282x300.jpeg" alt="고등어 간장조림" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">고등어 간장조림</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1701,6 +2011,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">김조림</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1710,15 +2021,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">떡볶이 밀키트</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
                 <div class="menu-card">
                     <div class="image-container">
-                        <img src="https://thechanonline.com/wp-content/uploads/2026/03/KakaoTalk_Photo_2026-03-27-17-36-47-211x300.jpeg" alt="배추 말이찜 & 소스" loading="lazy">
+                        <img src="https://thechanonline.com/wp-content/uploads/2026/03/KakaoTalk_Photo_2026-03-27-17-36-47-211x300.jpeg" alt="배추 말이찜 &amp; 소스" loading="lazy">
                     </div>
                     <div class="menu-info">
-                        <div class="menu-name">배추 말이찜 & 소스</div>
+                        <div class="menu-name">배추 말이찜 &amp; 소스</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1728,6 +2041,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">백김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1737,6 +2051,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">버섯 들깨 전골</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1746,6 +2061,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">순살 닭 야채볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1755,6 +2071,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">육개장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1764,6 +2081,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소불고기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1773,6 +2091,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">고기 찐빵 ($20)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1782,6 +2101,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">단팥 찐빵 ($20)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1791,6 +2111,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">식혜 1리터 ($10)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1800,6 +2121,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돈까스 ($12)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1809,6 +2131,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">제육 볶음 ($13)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1818,15 +2141,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">해물 된장국 ($12)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-3월 25일" class="menu-grid hidden">
+            </div><div id="menu-18" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2023/08/KakaoTalk_Photo_2023-08-09-23-09-46-005-300x300.jpeg" alt="깻잎 김치" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">깻잎 김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1836,6 +2161,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">나박김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1845,6 +2171,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돈까스</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1854,6 +2181,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">메밀 쟁반 국수</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1863,6 +2191,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">새송이 계란 장조림</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1872,6 +2201,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">야채전(반죽)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1881,6 +2211,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">제육 볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1890,6 +2221,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">해물 된장국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1899,6 +2231,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">부대찌개</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1908,6 +2241,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">고기 찐빵 ($20)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1917,6 +2251,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">단팥 찐빵 ($20)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1926,15 +2261,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">식혜 1리터 ($10)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-3월 18일" class="menu-grid hidden">
+            </div><div id="menu-19" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2022/02/KakaoTalk_20240808_094205096-300x300.jpg" alt="간장게장" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">간장게장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1944,6 +2281,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">감자 사라다</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1953,6 +2291,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">돼지 갈비</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1962,6 +2301,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">떡갈비 반죽</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1971,6 +2311,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">설렁탕</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1980,6 +2321,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">순두부 찌개</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1989,6 +2331,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">오이 소박이</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -1998,6 +2341,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">우동 샐러드</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2007,6 +2351,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">배추 굴 김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2016,6 +2361,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">고기 찐빵 ($20)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2025,6 +2371,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">단팥 찐빵 ($20)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2034,15 +2381,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">식혜 1리터 ($10)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-3월 11일" class="menu-grid hidden">
+            </div><div id="menu-20" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2024/05/KakaoTalk_20240527_072929823_03-293x300.jpg" alt="꽃게 된장찌게" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">꽃게 된장찌게</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2052,6 +2401,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">동태전</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2061,6 +2411,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">미역 초무침</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2070,6 +2421,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">소고기 배추전골</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2079,6 +2431,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">수육 밀키트</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2088,6 +2441,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">어묵 야채 볶음</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2097,6 +2451,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">오징어 무국</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2106,6 +2461,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">월남쌈 재료</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2115,6 +2471,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">깻잎 김치</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2124,6 +2481,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">고기 찐빵 ($20)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2133,6 +2491,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">단팥 찐빵 ($20)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2142,15 +2501,17 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">식혜 1리터 ($10)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
-            </div><div id="grid-3월 4일" class="menu-grid hidden">
+            </div><div id="menu-21" class="menu-grid hidden">
                 <div class="menu-card">
                     <div class="image-container">
                         <img src="https://thechanonline.com/wp-content/uploads/2025/07/KakaoTalk_20250723_222331024_05-218x300.jpg" alt="국물 닭도리탕" loading="lazy">
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">국물 닭도리탕</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2160,6 +2521,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">뼈다귀 감자탕</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2169,6 +2531,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">사골 석박지</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2178,6 +2541,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">새송이 소불고기</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2187,6 +2551,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">야채 계란 말이</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2196,6 +2561,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">오징어 초무침</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2205,6 +2571,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">잔치국수 (재료)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2214,6 +2581,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">참치 두부 짜글이</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2223,6 +2591,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">간장 새우장</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2232,6 +2601,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">고기 찐빵 ($20)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2241,6 +2611,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">단팥 찐빵 ($20)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2250,6 +2621,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">식혜 1리터 ($10)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2259,6 +2631,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">육개장 ($13)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             
@@ -2268,6 +2641,7 @@
                     </div>
                     <div class="menu-info">
                         <div class="menu-name">양념 LA 갈비 ($20)</div>
+                        <div class="menu-meta"></div>
                     </div>
                 </div>
             </div>
