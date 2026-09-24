@@ -1,19 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
-import urllib3
 from urllib.parse import urljoin
 import datetime
 import os
 import re
 import json
+from html import escape
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 # --- Configuration ---
 DEBUG = False  # Set to True to use local debug_page.html instead of the live site
-
-# Suppress SSL warnings
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # --- Path Configuration ---
 # Get the directory of the current script (e.g., /path/to/project/src)
@@ -35,16 +32,70 @@ def load_data():
     if os.path.exists(DATA_FILE):
         try:
             with open(DATA_FILE, 'r', encoding='utf-8') as f:
-                return json.load(f)
-        except json.JSONDecodeError:
-            return {}
+                data = json.load(f)
+            if isinstance(data, dict):
+                return data
+            print(f"Warning: {DATA_FILE} does not contain a JSON object.")
+        except (OSError, json.JSONDecodeError) as e:
+            print(f"Warning: Could not load {DATA_FILE}: {e}")
     return {}
 
 
 def save_data(data):
     """Saves menu data to JSON file."""
-    with open(DATA_FILE, 'w', encoding='utf-8') as f:
+    temp_file = f"{DATA_FILE}.tmp"
+    with open(temp_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+    os.replace(temp_file, DATA_FILE)
+
+
+def _image_url(img_tag, page_url):
+    """Returns the first usable image URL from common lazy-loading attributes."""
+    for attribute in ('src', 'data-src', 'data-lazy-src'):
+        value = img_tag.get(attribute)
+        if value:
+            return urljoin(page_url, value)
+
+    srcset = img_tag.get('srcset')
+    if srcset:
+        return urljoin(page_url, srcset.split(',')[0].strip().split(' ')[0])
+    return None
+
+
+def _extract_menu_item(
+    container,
+    page_url,
+    name_selectors,
+    price_selector=None,
+    category=None
+):
+    """Extracts one menu item from a card/post using the supplied name selectors."""
+    name = None
+    for selector in name_selectors:
+        name_node = container.select_one(selector)
+        if name_node:
+            name = name_node.get_text(" ", strip=True)
+            if name:
+                break
+
+    img_tag = container.find('img')
+    image_url = _image_url(img_tag, page_url) if img_tag else None
+    if not name and img_tag:
+        name = img_tag.get('alt', '').strip()
+
+    if not name or not image_url:
+        return None
+
+    item = {'name': name, 'image_url': image_url}
+    if category:
+        item['category'] = category
+    if price_selector:
+        price_node = container.select_one(price_selector)
+        if price_node:
+            price = price_node.get_text(" ", strip=True)
+            if price:
+                item['price'] = price
+    return item
 
 
 def fetch_menu_data(url):
@@ -87,7 +138,7 @@ def fetch_menu_data(url):
         session.mount("http://", adapter)
 
         try:
-            response = session.get(url, verify=False, timeout=30)
+            response = session.get(url, timeout=30)
             response.raise_for_status()
             soup = BeautifulSoup(response.text, 'html.parser')
         except requests.exceptions.RequestException as e:
@@ -107,38 +158,46 @@ def fetch_menu_data(url):
             delivery_date = f"{today.month}월 {today.day}일 (날짜 미확인)"
             print(f"Warning: Could not find delivery date pattern. Using {delivery_date}")
 
-        # 2. Extract Menu Items
+        # 2. Extract Menu Items. The site now uses menu-section/grid/card,
+        # while the old Elementor layout is retained as a fallback.
         menu_items = []
-        posts = soup.find_all(class_='elementor-post')
+        cards = soup.select('.menu-section .card')
+        for card in cards:
+            item = _extract_menu_item(
+                card,
+                url,
+                ('.card-name',),
+                category='기본 메뉴'
+            )
+            if item:
+                menu_items.append(item)
 
-        if not posts:
-            text_containers = soup.find_all(class_='elementor-post__text')
-            for text_div in text_containers:
-                container = text_div.find_parent(class_='elementor-post')
-                if container and container not in posts:
-                    posts.append(container)
+        # Separately sold items are displayed outside the main menu sections
+        # as .a-card elements and use their own name/price classes.
+        for card in soup.select('.a-card'):
+            item = _extract_menu_item(
+                card,
+                url,
+                ('.a-card-name',),
+                price_selector='.a-card-price',
+                category='단품 메뉴'
+            )
+            if item:
+                menu_items.append(item)
 
-        for post in posts:
-            name_div = post.find(class_='elementor-post__text')
-            if not name_div: continue
-            name_link = name_div.find('a')
-            if not name_link: continue
-            name = name_link.get_text(strip=True)
+        if not menu_items:
+            posts = soup.find_all(class_='elementor-post')
+            for post in posts:
+                item = _extract_menu_item(
+                    post,
+                    url,
+                    ('.elementor-post__title a', '.elementor-post__text a')
+                )
+                if item:
+                    menu_items.append(item)
 
-            img_tag = post.find('img')
-            if not img_tag: continue
-
-            if 'src' in img_tag.attrs:
-                img_url = urljoin(url, img_tag['src'])
-            elif 'data-src' in img_tag.attrs:
-                img_url = urljoin(url, img_tag['data-src'])
-            else:
-                continue
-
-            menu_items.append({
-                'name': name,
-                'image_url': img_url
-            })
+        if not menu_items:
+            print("Warning: No menu cards were found in the page.")
 
         return delivery_date, menu_items
 
@@ -167,7 +226,8 @@ def generate_html_report(all_data):
             return month, day, suffix
         return (0, 0, 0)
 
-    # Sort dates chronologically: Newest first
+    # Sort dates chronologically: Newest first. Legacy records do not contain
+    # a year, so use the current year for their relative ordering.
     sorted_dates = sorted(all_data.keys(), key=parse_korean_date, reverse=True)
 
     if not sorted_dates:
@@ -226,6 +286,7 @@ def generate_html_report(all_data):
             .menu-card:hover img {{ transform: scale(1.05); }}
             .menu-info {{ padding: 20px; text-align: center; }}
             .menu-name {{ font-weight: bold; color: #333; font-size: 1.1em; margin-bottom: 5px; }}
+            .menu-meta {{ color: #607d8b; font-size: 0.95em; }}
             .hidden {{ display: none; }}
         </style>
         <script>
@@ -233,7 +294,7 @@ def generate_html_report(all_data):
                 const grids = document.querySelectorAll('.menu-grid');
                 grids.forEach(grid => grid.classList.add('hidden'));
 
-                const selectedGrid = document.getElementById('grid-' + date);
+                const selectedGrid = document.getElementById(date);
                 if (selectedGrid) {{
                     selectedGrid.classList.remove('hidden');
                 }}
@@ -249,9 +310,14 @@ def generate_html_report(all_data):
                 <select id="dateSelect" onchange="showMenu(this.value)">
     """
 
+    date_ids = {date: f"menu-{index}" for index, date in enumerate(sorted_dates)}
+
     for date in sorted_dates:
         selected = "selected" if date == latest_date else ""
-        html_content += f'<option value="{date}" {selected}>{date}</option>\n'
+        html_content += (
+            f'<option value="{escape(date_ids[date], quote=True)}" {selected}>'
+            f'{escape(date)}</option>\n'
+        )
 
     html_content += """
                 </select>
@@ -261,15 +327,24 @@ def generate_html_report(all_data):
     for date in sorted_dates:
         items = all_data[date]
         visibility_class = "" if date == latest_date else "hidden"
-        html_content += f'<div id="grid-{date}" class="menu-grid {visibility_class}">'
+        html_content += (
+            f'<div id="{escape(date_ids[date], quote=True)}" '
+            f'class="menu-grid {visibility_class}">'
+        )
         for item in items:
+            image_url = escape(str(item.get('image_url', '')), quote=True)
+            name = escape(str(item.get('name', '')), quote=True)
+            category = escape(str(item.get('category', '')), quote=True)
+            price = escape(str(item.get('price', '')), quote=True)
+            meta = ' · '.join(value for value in (category, price) if value)
             html_content += f"""
                 <div class="menu-card">
                     <div class="image-container">
-                        <img src="{item['image_url']}" alt="{item['name']}" loading="lazy">
+                        <img src="{image_url}" alt="{name}" loading="lazy">
                     </div>
                     <div class="menu-info">
-                        <div class="menu-name">{item['name']}</div>
+                        <div class="menu-name">{name}</div>
+                        <div class="menu-meta">{meta}</div>
                     </div>
                 </div>
             """
@@ -333,4 +408,4 @@ if __name__ == "__main__":
         # 4. Generate HTML
         generate_html_report(all_data)
     else:
-        print("Failed to fetch/parse data.")
+        raise SystemExit("Failed to fetch/parse data.")
