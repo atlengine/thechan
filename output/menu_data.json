@@ -1082,5 +1082,52 @@
       "category": "단품 메뉴",
       "price": "$35"
     }
+  ],
+  "9월 30일": [
+    {
+      "name": "부대찌개",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=499",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "소고기 두부덮밥",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=508",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "나박 물김치",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=203",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "칼집 목살",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=607",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "닭도리탕",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=187",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "흑임자 연근 샐러드",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=568",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "육개장",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=83",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "명란젓",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=874",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "알감자 조림",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=875",
+      "category": "기본 메뉴"
+    }
   ]
 }
