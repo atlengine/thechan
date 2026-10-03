@@ -1176,5 +1176,52 @@
       "image_url": "https://thechanonline.com/dish_photo.php?id=879",
       "category": "기본 메뉴"
     }
+  ],
+  "10월 7일 - 1": [
+    {
+      "name": "제육 볶음",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=86",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "소고기 미역국",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=813",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "치킨 샐러드",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=881",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "야채 참치 죽",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=359",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "버섯 야채 카레",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=878",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "단감 깍두기",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=877",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "소고기 비빔밥",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=575",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "설렁탕",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=380",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "오이지 무침",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=879",
+      "category": "기본 메뉴"
+    }
   ]
 }
