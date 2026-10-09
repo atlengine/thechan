@@ -1270,5 +1270,52 @@
       "image_url": "https://thechanonline.com/dish_photo.php?id=380",
       "category": "기본 메뉴"
     }
+  ],
+  "10월 14일": [
+    {
+      "name": "돼지갈비",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=870",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "소고기 야채 볶음",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=885",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "동태 찌개",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=876",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "연근 조림",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=564",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "돈까스",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=3",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "야채 계란 말이",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=882",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "어묵탕",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=884",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "잔치국수 밀키트",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=421",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "팽이버섯구이",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=883",
+      "category": "기본 메뉴"
+    }
   ]
 }
