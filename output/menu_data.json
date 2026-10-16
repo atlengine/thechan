@@ -1317,5 +1317,52 @@
       "image_url": "https://thechanonline.com/dish_photo.php?id=883",
       "category": "기본 메뉴"
     }
+  ],
+  "10월 21일": [
+    {
+      "name": "뼈다귀 해장국",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=774",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "수육 재료",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=886",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "제육 볶음",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=891",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "배추 굴김치",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=892",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "콩나물 잡채",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=888",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "미트볼 토마토 카레",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=889",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "소고기 배추국",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=54",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "닭 떡볶이",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=890",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "고추장떡 반죽",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=887",
+      "category": "기본 메뉴"
+    }
   ]
 }
