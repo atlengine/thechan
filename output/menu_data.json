@@ -1364,5 +1364,52 @@
       "image_url": "https://thechanonline.com/dish_photo.php?id=887",
       "category": "기본 메뉴"
     }
+  ],
+  "10월 28일": [
+    {
+      "name": "배추말이 전골",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=622",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "치킨 야끼우동",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=41",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "간장게장",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=898",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "육개장",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=894",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "목살 숙주 볶음",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=895",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "나박 물김치",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=896",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "고추장 멸치 볶음",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=897",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "동그랑땡 반죽",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=893",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "강된장",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=415",
+      "category": "기본 메뉴"
+    }
   ]
 }
