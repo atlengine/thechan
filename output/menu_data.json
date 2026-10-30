@@ -1411,5 +1411,52 @@
       "image_url": "https://thechanonline.com/dish_photo.php?id=415",
       "category": "기본 메뉴"
     }
+  ],
+  "11월 4일": [
+    {
+      "name": "부대찌개",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=499",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "치즈 치킨까스",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=901",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "고등어 김치찜",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=900",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "맥적구이",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=685",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "순두부 계란찜",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=615",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "어묵 볶음",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=583",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "황태국",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=103",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "알감자 과일 사라다",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=899",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "미역 초무침",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=767",
+      "category": "기본 메뉴"
+    }
   ]
 }
