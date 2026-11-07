@@ -1458,5 +1458,52 @@
       "image_url": "https://thechanonline.com/dish_photo.php?id=767",
       "category": "기본 메뉴"
     }
+  ],
+  "11월 11일": [
+    {
+      "name": "설렁탕",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=536",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "닭도리탕",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=1",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "떡볶이",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=902",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "소고기 두부볶음",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=903",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "목살 간장구이",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=904",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "꼬치 어묵우동",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=905",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "감자 사라다",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=93",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "오이 들깨 무침",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=880",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "무생채",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=906",
+      "category": "기본 메뉴"
+    }
   ]
 }
