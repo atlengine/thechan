@@ -1505,5 +1505,52 @@
       "image_url": "https://thechanonline.com/dish_photo.php?id=906",
       "category": "기본 메뉴"
     }
+  ],
+  "11월 18일": [
+    {
+      "name": "돼지 목살 두루치기",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=857",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "사골 떡국",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=412",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "배추 굴김치",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=892",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "꼬마 김밥 재료",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=313",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "콩나물 냉채",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=871",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "호박죽",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=761",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "고기야채말이",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=907",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "고추장찌개",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=908",
+      "category": "기본 메뉴"
+    },
+    {
+      "name": "닭다리 삼계탕",
+      "image_url": "https://thechanonline.com/dish_photo.php?id=309",
+      "category": "기본 메뉴"
+    }
   ]
 }
